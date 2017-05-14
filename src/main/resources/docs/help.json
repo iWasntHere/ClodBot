@@ -1,0 +1,35 @@
+{
+	"general" : [
+	
+		{
+			"command"		:	"help",
+			"description"	:	"Displays information about a command.",
+			"usage"			:	"help [command]",
+			"example"		:	"help help"
+		}
+	
+	],
+	
+	"collectibles" : [
+	
+		{
+			"command"		:	"collectibles",
+			"description"	:	"Lists the available commands that relate to collectibles.",
+			"usage"			:	"collectables",
+			"example"		:	""
+		},
+		
+		{
+			"command"		:	"collectibles owned",
+			"description"	:	"Prints a list of all collectibles owned by yourself."
+			"usage"			:	"collectables owned",
+			"example"		:	""
+		},
+		
+		{
+			"command"		:	""
+		}
+		
+	
+	]
+}

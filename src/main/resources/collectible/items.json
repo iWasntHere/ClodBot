@@ -1,0 +1,26 @@
+{
+	"items" : [
+	
+		{
+			"id"	:	"sam_meme",
+			"name"	: 	"Sam Meme",
+			"emoji"	:	":bed:",
+			"desc"	:	"'sorry guys im sicc'"
+		},
+		
+		{
+			"id"	:	"b_emoji",
+			"name"	:	"'B' Emoji",
+			"emoji"	:	":b:",
+			"desc"	:	"'hello noBitt'"
+		},
+		
+		{
+			"id"	:	"cummies",
+			"name"	:	"Cummies",
+			"emoji"	:	":sweat_drops:",
+			"desc"	:	"thanks daddy <3"
+		}
+		
+	]
+}
