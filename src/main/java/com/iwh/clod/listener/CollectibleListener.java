@@ -22,12 +22,14 @@ public class CollectibleListener extends ListenerAdapter {
 
     private Collectibles collectibles;
     private UserInventories inventories;
+    private Shop shop;
 
     private final String[] collectibleAliases = {"collectibles", "items", "i"};
 
     public void onReady(ReadyEvent event){
         collectibles = new Collectibles();
         inventories = new UserInventories(collectibles);
+        shop = new Shop(collectibles);
 
         BotLogger.info("Drop time is " + Referendum.TIMEBETWEENITEMDROPS + " seconds.");
     }

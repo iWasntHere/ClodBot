@@ -41,14 +41,16 @@ public class Collectibles {
         JSONArray array = new JSONObject(items).getJSONArray("items");
         for (int i = 0; i < array.length(); i++){
             String id, n, e, d;
+            int p;
             JSONObject object = array.getJSONObject(i);
 
             id = object.getString("id");
             n = object.getString("name");
             e = object.getString("emoji");
             d = object.getString("desc");
+            p = object.getInt("price");
 
-            collectibles.add(new Collectible(id, n, e, d));
+            collectibles.add(new Collectible(id, n, e, d, p));
         }
 
         BotLogger.info(collectibles.size() + " collectibles loaded!");

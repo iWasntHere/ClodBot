@@ -5,21 +5,296 @@
 			"id"	:	"sam_meme",
 			"name"	: 	"Sam Meme",
 			"emoji"	:	":bed:",
-			"desc"	:	"'sorry guys im sicc'"
+			"desc"	:	"'sorry guys im sicc'",
+			"price"	:	50
 		},
 		
 		{
 			"id"	:	"b_emoji",
 			"name"	:	"'B' Emoji",
 			"emoji"	:	":b:",
-			"desc"	:	"'hello noBitt'"
+			"desc"	:	"'hello noBitt'",
+			"price"	:	40
 		},
 		
 		{
 			"id"	:	"cummies",
 			"name"	:	"Cummies",
 			"emoji"	:	":sweat_drops:",
-			"desc"	:	"thanks daddy <3"
+			"desc"	:	"thanks daddy <3",
+			"price"	:	45
+		},
+		
+		{
+			"id"	:	"a_way_out",
+			"name"	:	"A Way Out",
+			"emoji"	:	":gun:",
+			"desc"	:	"pow! haha!",
+			"price"	:	30
+		},
+		
+		{
+			"id"	:	"diamond_awper_hand",
+			"name"	:	"Diamond Awper Hand",
+			"emoji"	:	":gun:",
+			"desc"	:	"'an artiface from the duengon'",
+			"price"	:	75
+		},
+		
+		{
+			"id"	:	"flying_money",
+			"name"	:	"Flying Money",
+			"emoji"	:	":money_with_wings:",
+			"desc"	:	"its flying money!",
+			"price"	:	30
+		},
+		
+		{
+			"id"	:	"dat_boi",
+			"name"	:	"Dat Boi",
+			"emoji"	:	":frog:",
+			"desc"	:	"oh shit waddup!",
+			"price"	:	45
+		},
+		
+		{
+			"id"	:	"clownjob",
+			"name"	:	"Clownjob",
+			"emoji"	:	":clown:",
+			"desc"	:	"honk honk :]",
+			"price"	:	69
+		},
+		
+		{
+			"id"	:	"ring",
+			"name"	:	"Something Special for Someone Special",
+			"emoji"	:	":ring:",
+			"desc"	:	"worth every penny.",
+			"price"	:	1000
+		},
+		
+		{
+			"id"	:	"harambe",
+			"name"	:	"Harambe",
+			"emoji"	:	":gorilla:",
+			"desc"	:	"shot dead.",
+			"price"	:	60
+		},
+	
+		{
+			"id"	:	"internet",
+			"name"	:	"The Internet",
+			"emoji"	:	":globe_with_meridians:",
+			"desc"	:	"'all at your fingertips'",
+			"price"	:	75
+		},
+
+		{
+			"id"	:	"pizza",
+			"name"	:	"Pizza",
+			"emoji"	:	":pizza:",
+			"desc"	:	"'P-I-Z-Z-A'",
+			"price"	:	15
+		},
+		
+		{
+			"id"	:	"mom_spaghetti",
+			"name"	:	"MomSpaghet",
+			"emoji"	:	":spaghetti:",
+			"desc"	:	"'delish!'",
+			"price"	:	25
+		},
+		
+		{
+			"id"	:	"ssbm",
+			"name"	:	"Melee",
+			"emoji"	:	":minidisc:",
+			"desc"	:	"'final destination, no items, fox only'",
+			"price"	:	60
+		},
+		
+		{
+			"id"	:	"dr_ivan1",
+			"name"	:	"Dr. Ivan's Adventures in Stalingrad",
+			"emoji"	:	":film_frames:",
+			"desc"	:	"'a guide to the immune system'",
+			"price"	:	50
+		},
+		
+		{
+			"id"	:	"dr_ivan2",
+			"name"	:	"Dr. Ivan's Adventures in Environmental Science",
+			"emoji"	:	":film_frames:",
+			"desc"	:	"'the exciting sequel'",
+			"price"	:	50
+		},
+		
+		{
+			"id"	:	"dr_ivan3",
+			"name"	:	"The Return of Dr. Ivan",
+			"emoji"	:	":film_frames:",
+			"desc"	:	"'the amazing climax'",
+			"price"	:	50
+		},
+		
+		{
+			"id"	:	"credit_card",
+			"name"	:	"Credit Card",
+			"emoji"	:	":credit_card:",
+			"desc"	:	"'its not my moms i swear'",
+			"price"	:	35
+		},
+		
+		{
+			"id"	:	"bomb",
+			"name"	:	"Something Spicy",
+			"emoji"	:	":bomb:",
+			"desc"	:	"'know what i mean?'",
+			"price"	:	25
+		},
+		
+		{
+			"id"	:	"poop",
+			"name"	:	"Heroes of The Storm",
+			"emoji"	:	":poo:",
+			"desc"	:	"don't act like you don't know it.",
+			"price"	:	1
+		},
+		
+		{
+			"id"	:	"pyro_update",
+			"name"	:	"Pyro Update",
+			"emoji"	:	":fire:",
+			"desc"	:	"'updated the localization files'",
+			"price"	:	95
+		},
+		
+		{
+			"id"	:	"free_item",
+			"name"	:	"Freedom",
+			"emoji"	:	":free:",
+			"desc"	:	"'i'd make you pay otherwise.'",
+			"price"	:	0
+		},
+		
+		{
+			"id"	:	"upvote",
+			"name"	:	"Upvote",
+			"emoji"	:	":arrow_up:",
+			"desc"	:	"internet points up",
+			"price"	:	40
+		},
+		
+		{
+			"id"	:	"downvote",
+			"name"	:	"Downvote",
+			"emoji"	:	":arrow_down:",
+			"desc"	:	"internet points down",
+			"price"	:	40
+		},
+		
+		{
+			"id"	:	"huntsman",
+			"name"	:	"Lucksman",
+			"emoji"	:	":archery:",
+			"desc"	:	"big hitboxes.",
+			"price"	:	20
+		},
+		
+		{
+			"id"	:	"crazy_bus",
+			"name"	:	"Crazy Bus",
+			"emoji"	:	":bus:",
+			"desc"	:	"'eAr ExPlOdInG sOuNd QuALiTy'",
+			"price"	:	10
+		},
+		
+		{
+			"id"	:	"confederate_flag",
+			"name"	:	"Confederate Flag",
+			"emoji"	:	":arrow_white:",
+			"desc"	:	"'soz'",
+			"price"	:	60
+		},
+		
+		{
+			"id"	:	"netbook",
+			"name"	:	"Netbook",
+			"emoji"	:	":computer:",
+			"desc"	:	"very fast",
+			"price"	:	1
+		},
+		
+		{
+			"id"	:	"detroit_home",
+			"name"	:	"Detroit Home Investment",
+			"emoji"	:	":house_abandoned:",
+			"desc"	:	"yup.",
+			"price"	:	10
+		},
+		
+		{
+			"id"	:	"lolzorz",
+			"name"	:	"Lolzorz",
+			"emoji"	:	":rofl:",
+			"desc"	:	"'problem with lolzorz pal?'",
+			"price"	:	60
+		},
+		
+		{
+			"id"	:	"ok_hand",
+			"name"	:	"OK Hand Sign",
+			"emoji"	:	":ok_hand:",
+			"desc"	:	"ok_hand",
+			"price"	:	75
+		},
+		
+		{
+			"id"	:	"chad",
+			"name"	:	"Chad",
+			"emoji"	:	":sunglasses:",
+			"desc"	:	"'cool. popular. captain of the varsity team.'",
+			"price"	:	85
+		},
+		
+		{
+			"id"	:	"debt",
+			"name"	:	"Eternal Debt",
+			"emoji"	:	":mortar_board:",
+			"desc"	:	"'millenials...'",
+			"price"	:	1000
+		},
+		
+		{
+			"id"	:	"dollar",
+			"name"	:	"Dollar",
+			"emoji"	:	":dollar:",
+			"desc"	:	"'durty kapitalistik currency'",
+			"price"	:	100
+		},
+		
+		{
+			"id"	:	"yen",
+			"name"	:	"Yen",
+			"emoji"	:	":yen:",
+			"desc"	:	"'pristine communism currency'",
+			"price"	:	101
+		},
+		
+		{
+			"id"	:	"euro",
+			"name"	:	"Euro",
+			"emoji"	:	":euro:",
+			"desc"	:	"euro.",
+			"price"	:	30
+		},
+		
+		{
+			"id"	:	"copyright",
+			"name"	:	"Copyright Strike",
+			"emoji"	:	":copyright:",
+			"desc"	:	"'we autodetected a song in your video'",
+			"price"	:	20
 		}
 		
 	]
