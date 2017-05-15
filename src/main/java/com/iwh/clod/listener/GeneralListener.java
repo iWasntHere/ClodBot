@@ -16,7 +16,7 @@ import net.dv8tion.jda.core.hooks.ListenerAdapter;
 import java.util.EventListener;
 
 /**
- * Created by Nick on 5/12/2017.
+ * Created by iWasHere on 5/12/2017.
  */
 public class GeneralListener extends ListenerAdapter{
 

@@ -9,6 +9,7 @@ import net.dv8tion.jda.core.JDABuilder;
 import java.io.FileInputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.sql.Ref;
 import java.util.Properties;
 
 /**
@@ -34,6 +35,7 @@ public class Bot {
                 writer.write("bot_token=[your token here!]\n");
                 writer.write("command_prefix=;\n");
                 writer.write("enable_collectibles=true\n");
+                writer.write("seconds_between_collectible_drops=60\n");
                 writer.close();
                 BotLogger.info("Config file created under " + Referendum.CONFIG.getAbsolutePath() + "\nPlease set the bot_token property in this file,\nthen relaunch!");
                 System.exit(0);
@@ -46,8 +48,11 @@ public class Bot {
             BotLogger.fatal("Error loading properties: " + e.getMessage());
         }
 
+        SaveData.loadData();
+
         try {
             JDABuilder botBuilder = new JDABuilder(AccountType.BOT);
+            Referendum.TIMEBETWEENITEMDROPS = Long.parseLong(properties.getProperty("seconds_between_collectible_drops"));
             Referendum.COMMANDPREFIX = properties.getProperty("command_prefix");
             Referendum.TOKEN = properties.getProperty("bot_token");
 

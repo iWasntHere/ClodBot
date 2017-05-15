@@ -12,6 +12,7 @@ import net.dv8tion.jda.core.hooks.ListenerAdapter;
 import net.dv8tion.jda.core.requests.RestAction;
 
 import java.sql.Ref;
+import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
 /**
@@ -22,9 +23,13 @@ public class CollectibleListener extends ListenerAdapter {
     private Collectibles collectibles;
     private UserInventories inventories;
 
+    private final String[] collectibleAliases = {"collectibles", "items", "i"};
+
     public void onReady(ReadyEvent event){
         collectibles = new Collectibles();
         inventories = new UserInventories(collectibles);
+
+        BotLogger.info("Drop time is " + Referendum.TIMEBETWEENITEMDROPS + " seconds.");
     }
 
     public void onGuildMessageReceived(GuildMessageReceivedEvent event){
@@ -36,9 +41,11 @@ public class CollectibleListener extends ListenerAdapter {
             return;
         }
 
-        tryGiveCollectible(message, 10000);
+        if (SaveData.canDrop()) {
+            tryGiveCollectible(message, 100);
+        }
 
-        if (CommandHelper.isCommand("collectibles", content)){
+        if (CommandHelper.isCommand(collectibleAliases, content)){
             String[] args = CommandHelper.getArgs(content);
 
             if (args.length == 1) {
@@ -66,6 +73,11 @@ public class CollectibleListener extends ListenerAdapter {
                     case "list":
                         channel.sendMessage(collectibles.toString()).queue();
                         break;
+                    case "time":
+                        long time = SaveData.getDropTime(TimeUnit.SECONDS);
+                        String str = (!SaveData.canDrop()) ? "Time until drop: " + (time) + " sec." : "Drop available!";
+                        channel.sendMessage(str).queue();
+                        break;
                 }
             }
         }
@@ -76,11 +88,15 @@ public class CollectibleListener extends ListenerAdapter {
             return;
         }
 
+        BotLogger.info("Trying to give " + message.getAuthor().toString() + " a collectible.");
+
         Collectible collectible = collectibles.getRandomCollectible();
         boolean success = inventories.giveCollectible(message.getAuthor(), collectible.getId());
         if (success) {
             String msg = message.getAuthor().getAsMention() + " found " + collectible.getEmoji() + " " + collectible.getName() + "!";
             message.getChannel().sendMessage(msg).queue();
+
+            SaveData.setLastDrop();
         }
     }
 

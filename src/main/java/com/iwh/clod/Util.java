@@ -5,7 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.sql.Ref;
+import java.util.Date;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by iWasHere on 5/11/2017.
@@ -72,6 +74,11 @@ public class Util {
         }
 
         return String.valueOf(c);
+    }
+
+    public static long getTimeDifference(Date date1, Date date2, TimeUnit unit){
+        long dif = date1.getTime() - date2.getTime();
+        return unit.convert(dif, TimeUnit.MILLISECONDS);
     }
 
 }

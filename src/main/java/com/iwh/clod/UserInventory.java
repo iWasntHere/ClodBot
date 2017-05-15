@@ -16,10 +16,17 @@ public class UserInventory {
 
     private List<Collectible> collectibles;
 
-    public UserInventory(String ownerID, List<Collectible> collectibles, Collectibles collectibleDatabase){
+    private int points;
+
+    public UserInventory(String ownerID, List<Collectible> collectibles, int points, Collectibles collectibleDatabase){
         this.ownerID = ownerID;
         this.collectibles = collectibles;
         this.collectibleDatabase = collectibleDatabase;
+        this.points = points;
+    }
+
+    public UserInventory(String ownerID, List<Collectible> collectibles, Collectibles collectibleDatabase){
+        this(ownerID, collectibles, 0, collectibleDatabase);
     }
 
     public UserInventory(String ownerID, Collectibles collectibleDatabase){
@@ -28,6 +35,14 @@ public class UserInventory {
 
     public String getID(){
         return ownerID;
+    }
+
+    public int getPoints(){
+        return points;
+    }
+
+    public void modifyPoints(int toMod){
+        points += toMod;
     }
 
     public List<Collectible> getCollectibles(){
@@ -60,6 +75,7 @@ public class UserInventory {
 
     public String toString(){
         String str = "Inventory for '" + ownerID + "': ";
+        str = str + "\n" + points + " points";
         for (Collectible c : collectibles){
             str = str + "\n" + c.toString();
         }

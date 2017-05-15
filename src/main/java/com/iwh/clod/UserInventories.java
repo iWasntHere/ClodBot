@@ -25,6 +25,8 @@ public class UserInventories {
     }
 
     public void resetInventories(boolean reload){
+
+        /*
         try {
             String stock = Util.getStringFromFile(Referendum.STOCKINVENTORY);
             Util.overwriteFile(Referendum.USERINVENTORIES, stock);
@@ -35,6 +37,10 @@ public class UserInventories {
         }
 
         BotLogger.info("Inventories set to stock...");
+
+        */
+
+        initFile();
 
         if (reload){
             reloadInventories();
@@ -55,6 +61,7 @@ public class UserInventories {
         for (UserInventory inventory : inventories){
             JSONObject userObj = new JSONObject();
             userObj.put("id", inventory.getID());
+            userObj.put("points", inventory.getPoints());
 
             JSONArray collectibles = new JSONArray();
 
@@ -73,8 +80,37 @@ public class UserInventories {
         Util.overwriteFile(Referendum.USERINVENTORIES, main.toString());
     }
 
+    private void initFile(){
+        BotLogger.info("Generating default userinventory file...");
+
+        try {
+            Referendum.USERINVENTORIES.createNewFile();
+        }
+        catch (IOException e){
+            BotLogger.fatal("Error in initializing default inventory file: " + e.getMessage());
+            return;
+        }
+
+        JSONObject object = new JSONObject();
+        JSONArray array = new JSONArray();
+
+        JSONObject defaultUser = new JSONObject();
+        defaultUser.put("id", "-1");
+        defaultUser.put("points", 0);
+        defaultUser.put("collection", new JSONArray());
+
+        array.put(defaultUser);
+
+        object.put("inventories", array);
+
+        Util.overwriteFile(Referendum.USERINVENTORIES, object.toString());
+
+        BotLogger.info("Inventory file generated.");
+    }
+
     public void loadInventories(){
 
+        /*
         if (!Referendum.USERINVENTORIES.exists()){
             BotLogger.info("User-inventory file does not exist. Using stock...");
             try {
@@ -85,6 +121,12 @@ public class UserInventories {
             }
             resetInventories(true);
         }
+        */
+
+        if (!Referendum.USERINVENTORIES.exists()){
+            initFile();
+        }
+
 
         String invs = Util.getStringFromFileCompact(Referendum.USERINVENTORIES);
 
@@ -99,6 +141,8 @@ public class UserInventories {
 
             String invID = object.getString("id");
 
+            int points = object.getInt("points");
+
             List<Collectible> collectibles = new ArrayList<>();
             JSONArray items = object.getJSONArray("collection");
             for (int j = 0; j < items.length(); j++) {
@@ -110,7 +154,7 @@ public class UserInventories {
                 collectibles.add(item);
             }
 
-            inventories.add(new UserInventory(invID, collectibles, collectibleDatabase));
+            inventories.add(new UserInventory(invID, collectibles, points, collectibleDatabase));
 
         }
     }
