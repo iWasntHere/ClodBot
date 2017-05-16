@@ -19,6 +19,7 @@ public class SaveData {
     public static JSONObject savedata;
 
     private static Date lastCollectibleDrop;
+    private static Date lastShopRestock;
 
     public static void loadData(){
 
@@ -29,6 +30,9 @@ public class SaveData {
 
                 long date = savedata.getLong("last_drop");
                 lastCollectibleDrop = new Date(date);
+
+                date = savedata.getLong("last_restock");
+                lastShopRestock= new Date(date);
             } catch (IOException e) {
                 BotLogger.fatal("Could not load data: " + e.getMessage());
             }
@@ -45,12 +49,14 @@ public class SaveData {
         savedata = new JSONObject();
 
         savedata.put("last_drop", 0);
+        savedata.put("last_restock", 0);
 
         Util.overwriteFile(Referendum.SAVEDATA, savedata.toString());
     }
 
     public static void saveData(){
         savedata.put("last_drop", lastCollectibleDrop.toString());
+        savedata.put("last_restock", lastShopRestock.toString());
 
         Util.overwriteFile(Referendum.SAVEDATA, savedata.toString());
         BotLogger.info("Finished saving...");

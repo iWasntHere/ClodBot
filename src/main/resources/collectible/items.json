@@ -295,6 +295,62 @@
 			"emoji"	:	":copyright:",
 			"desc"	:	"'we autodetected a song in your video'",
 			"price"	:	20
+		},
+		
+		{
+			"id"	:	"eggplant",
+			"name"	:	"Eggplant",
+			"emoji"	:	":eggplant:",
+			"desc"	:	"thicc",
+			"price"	:	20
+		},
+		
+		{
+			"id"	:	"airlines",
+			"name"	:	"United Airlines",
+			"emoji"	:	":airplanes:",
+			"desc"	:	"'no vacancies'",
+			"price"	:	45
+		},
+		
+		{
+			"id"	:	"ay_bby",
+			"name"	:	"Ay Bby",
+			"emoji"	:	":smirk:",
+			"desc"	:	";)",
+			"price"	:	25
+		},
+		
+		{
+			"id"	:	"football",
+			"name"	:	"Cancer",
+			"emoji"	:	":football:",
+			"desc"	:	"'leading cause of brain hemorrages'",
+			"price"	:	30
+		},
+		
+		{
+			"id"	:	"novitt_story",
+			"name"	:	"Novitt Story",
+			"emoji"	:	":book:",
+			"desc"	:	"'dear friends...'",
+			"price"	:	55
+		},
+		
+		{
+			"id"	:	"donald_trumpet",
+			"name"	:	"Donald Trumpet",
+			"emoji"	:	":trumpet:",
+			"desc"	:	"'this is the best trumpet'",
+			"price"	:	60
+		},
+		
+		{
+			"id"	:	"d6",
+			"name"	:	"D6",
+			"emoji"	:	":game_die:",
+			"desc"	:	"'praise rngesus'",
+			"price"	:	66
 		}
 		
 	]

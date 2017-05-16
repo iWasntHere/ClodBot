@@ -46,6 +46,7 @@ public class CollectibleListener extends ListenerAdapter {
         if (SaveData.canDrop()) {
             tryGiveCollectible(message, 100);
         }
+        shop.tryRestock();
 
         if (CommandHelper.isCommand(collectibleAliases, content)){
             String[] args = CommandHelper.getArgs(content);
@@ -79,6 +80,25 @@ public class CollectibleListener extends ListenerAdapter {
                         long time = SaveData.getDropTime(TimeUnit.SECONDS);
                         String str = (!SaveData.canDrop()) ? "Time until drop: " + (time) + " sec." : "Drop available!";
                         channel.sendMessage(str).queue();
+                        break;
+                    case "shop":
+                        channel.sendMessage("Shop restocks in " + shop.getRestockTime() + " sec!").queue();
+                        channel.sendMessage(shop.toString()).queue();
+                        break;
+                }
+            }
+
+            if (args.length == 2){
+                switch (args[0]){
+                    case "info":
+                        String itemName = args[1];
+                        Collectible c = collectibles.getCollectibleByName(itemName);
+
+                        if (c != null){
+                            channel.sendMessage(c.getFormalInfo()).queue();
+                        }else{
+                            channel.sendMessage("That item doesn't exist!").queue();
+                        }
                         break;
                 }
             }

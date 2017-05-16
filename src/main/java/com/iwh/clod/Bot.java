@@ -28,6 +28,7 @@ public class Bot {
             //Check for property file
             if (!Referendum.CONFIG.exists()){
                 BotLogger.info("Config file does not exist. Creating...");
+                Referendum.CONFIG_DIR.mkdirs();
                 Referendum.CONFIG.createNewFile();
 
                 //Init the property file with default values
@@ -36,6 +37,7 @@ public class Bot {
                 writer.write("command_prefix=;\n");
                 writer.write("enable_collectibles=true\n");
                 writer.write("seconds_between_collectible_drops=60\n");
+                writer.write("seconds_between_shop_restocks=60\n");
                 writer.close();
                 BotLogger.info("Config file created under " + Referendum.CONFIG.getAbsolutePath() + "\nPlease set the bot_token property in this file,\nthen relaunch!");
                 System.exit(0);
@@ -53,6 +55,7 @@ public class Bot {
         try {
             JDABuilder botBuilder = new JDABuilder(AccountType.BOT);
             Referendum.TIMEBETWEENITEMDROPS = Long.parseLong(properties.getProperty("seconds_between_collectible_drops"));
+            Referendum.TIMEBETWEENSHOPRESTOCKS = Long.parseLong(properties.getProperty("seconds_between_shop_restocks"));
             Referendum.COMMANDPREFIX = properties.getProperty("command_prefix");
             Referendum.TOKEN = properties.getProperty("bot_token");
 

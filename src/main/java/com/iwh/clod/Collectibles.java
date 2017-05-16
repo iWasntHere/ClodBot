@@ -71,6 +71,17 @@ public class Collectibles {
         return null;
     }
 
+    public Collectible getCollectibleByName(String name){
+        name = name.toLowerCase();
+        for (Collectible c : collectibles){
+            if (c.getName().toLowerCase().equals(name)){
+                return c;
+            }
+        }
+
+        return null;
+    }
+
     public String toString(){
         String string = "";
         for (Collectible c : collectibles){

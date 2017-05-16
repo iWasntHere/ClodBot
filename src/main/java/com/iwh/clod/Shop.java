@@ -1,6 +1,7 @@
 package com.iwh.clod;
 
 import java.util.Date;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by iWasHere on 5/14/2017.
@@ -19,8 +20,18 @@ public class Shop {
         stock();
     }
 
-    public boolean checkIfNeedsRestock(){
+    public void tryRestock(){
+        if (checkIfNeedsRestock()){
+            stock();
+        }
+    }
 
+    public boolean checkIfNeedsRestock(){
+        return (getRestockTime() <= 0);
+    }
+
+    public long getRestockTime(){
+        return Referendum.TIMEBETWEENSHOPRESTOCKS + Util.getTimeDifference(lastStock, new Date(), TimeUnit.SECONDS);
     }
 
     public void stock(){
@@ -29,17 +40,19 @@ public class Shop {
 
             //Make sure each item is stocked once
             if (!isItemStocked(c)) {
-                collectibles[i] = collectibleDatabase.getRandomCollectible();
+                collectibles[i] = c;
             }else{
                 i--;
             }
         }
 
         BotLogger.info("Shop has been stocked.");
+        lastStock = new Date();
     }
 
     public boolean isItemStocked(Collectible collectible){
         for (Collectible c : collectibles){
+            if (c == null){ continue; }
             if (c.getId().equals(collectible.getId())){
                 return true;
             }

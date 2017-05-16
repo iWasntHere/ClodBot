@@ -33,4 +33,8 @@ public class Collectible {
         return getEmoji() + " " + getName();
     }
 
+    public String getFormalInfo(){
+        return getEmoji() + " " + getName() + "\n*" + getDescription() + "*";
+    }
+
 }
