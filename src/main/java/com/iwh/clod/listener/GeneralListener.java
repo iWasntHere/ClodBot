@@ -1,9 +1,6 @@
 package com.iwh.clod.listener;
 
-import com.iwh.clod.BotLogger;
-import com.iwh.clod.CommandHelper;
-import com.iwh.clod.Referendum;
-import com.iwh.clod.Util;
+import com.iwh.clod.*;
 import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.entities.TextChannel;
 import net.dv8tion.jda.core.events.DisconnectEvent;
@@ -22,6 +19,7 @@ public class GeneralListener extends ListenerAdapter{
 
     public void onReady(ReadyEvent event){
         BotLogger.info("Startup successful.");
+        event.
     }
 
     public void onDisconnect(DisconnectEvent event){
