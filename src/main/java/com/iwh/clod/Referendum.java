@@ -4,6 +4,8 @@ import java.io.File;
 import java.util.Enumeration;
 
 /**
+ * Reference class.
+ *
  * Created by iWasHere on 5/11/2017.
  */
 public class Referendum {

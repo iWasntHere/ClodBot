@@ -12,6 +12,7 @@ import net.dv8tion.jda.core.hooks.ListenerAdapter;
 import net.dv8tion.jda.core.requests.RestAction;
 
 import java.sql.Ref;
+import java.util.Date;
 import java.util.concurrent.TimeUnit;
 import java.util.logging.Logger;
 
@@ -105,6 +106,14 @@ public class CollectibleListener extends ListenerAdapter {
         }
     }
 
+    /**
+     * Tries to give a collectible. A message must be specified, as this method attempts to reply with a message.
+     *
+     * @param message The message input
+     * @param random Maximum random value
+     *
+     * @author iWasHere
+     */
     private void tryGiveCollectible(Message message, int random){
         if (random != 0 && Math.ceil(Math.random() * random) != 0){
             return;

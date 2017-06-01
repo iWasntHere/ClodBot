@@ -10,6 +10,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Holds all data for user inventories.
+ *
  * Created by iWasHere on 5/11/2017.
  */
 public class UserInventories {
@@ -24,6 +26,13 @@ public class UserInventories {
         BotLogger.info("User Inventories loaded.");
     }
 
+    /**
+     * Resets all user inventories. Essentially deletes all user data.
+     *
+     * @param reload Try to reload inventories?
+     *
+     * @author iWasHere
+     */
     public void resetInventories(boolean reload){
 
         /*
@@ -47,12 +56,22 @@ public class UserInventories {
         }
     }
 
+    /**
+     * Reloads user inventories. Updates changes from file.
+     *
+     * @author iWasHere
+     */
     public void reloadInventories(){
         inventories.clear();
         loadInventories();
         BotLogger.info("Reloaded inventories.");
     }
 
+    /**
+     * Saves user inventories to the file path specified in the {@link Referendum}.
+     *
+     * @author iWasHere
+     */
     public void saveInventories(){
         JSONObject main = new JSONObject();
 
@@ -80,6 +99,11 @@ public class UserInventories {
         Util.overwriteFile(Referendum.USERINVENTORIES, main.toString());
     }
 
+    /**
+     * Generates a blank user inventory file.
+     *
+     * @author iWasHere
+     */
     private void initFile(){
         BotLogger.info("Generating default userinventory file...");
 
@@ -108,6 +132,11 @@ public class UserInventories {
         BotLogger.info("Inventory file generated.");
     }
 
+    /**
+     * Loads user inventories from the user inventory file.
+     *
+     * @author iWasHere
+     */
     public void loadInventories(){
 
         /*
@@ -159,6 +188,16 @@ public class UserInventories {
         }
     }
 
+    /**
+     * Tries to give a collectible with a given id to a user. Returns true if successful.
+     * Returns false if the user already has the collectible.
+     *
+     * @param user User to give to
+     * @param id Collectible id to give
+     * @return Success
+     *
+     * @author iWasHere
+     */
     public boolean giveCollectible(User user, String id){
         String invID = user.getId();
         UserInventory inventory = findUserInventoryByID(invID);
@@ -175,12 +214,29 @@ public class UserInventories {
         return inventory.giveCollectible(id);
     }
 
+    /**
+     * Adds the given user to the list of UserInventories.
+     *
+     * @param user The user to add
+     * @return The new UserInventory
+     *
+     * @author iWasHere
+     */
     public UserInventory addUser(User user){
         UserInventory inventory = new UserInventory(user.getId(), collectibleDatabase);
         inventories.add(inventory);
         return inventory;
     }
 
+    /**
+     * Attempts to find a UserInventory by a given id.
+     * Returns null if failed.
+     *
+     * @param ID The id to search for
+     * @return The found UserInventory
+     *
+     * @author iWasHere
+     */
     public UserInventory findUserInventoryByID(String ID){
         for (UserInventory inventory : inventories){
             if (inventory.getID().equals(ID)){

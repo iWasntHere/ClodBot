@@ -6,6 +6,8 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
+ * Easy logging!
+ *
  * Created by iWasHere on 5/11/2017.
  */
 public class BotLogger {

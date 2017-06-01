@@ -11,6 +11,8 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
+ * Contains data for all loaded collectibles.
+ *
  * Created by iWasHere on 5/11/2017.
  */
 public class Collectibles {
@@ -22,6 +24,11 @@ public class Collectibles {
         BotLogger.info("Collectibles system initialized.");
     }
 
+    /**
+     * Loads collectibles from the {@link Referendum#COLLECTIBLES collectibles file}.
+     *
+     * @author iWasHere
+     */
     public void loadCollectibles(){
         collectibles = new ArrayList<Collectible>();
 
@@ -56,11 +63,24 @@ public class Collectibles {
         BotLogger.info(collectibles.size() + " collectibles loaded!");
     }
 
+    /**
+     * Retrieves a random collectible from the list of loaded collectibles.
+     * @return Random collectible
+     *
+     * @author iWasHere
+     */
     public Collectible getRandomCollectible(){
         int index = (int) Math.floor(Math.random() * collectibles.size());
         return collectibles.get(index);
     }
 
+    /**
+     * Gets a collectible by it's ID.
+     * @param id The ID to search for
+     * @return The Collectible with the matching ID, or null if one is not found
+     *
+     * @author iWasHere
+     */
     public Collectible getCollectibleByID(String id){
         for (Collectible c : collectibles){
             if (c.getId().equals(id)){
@@ -71,6 +91,13 @@ public class Collectibles {
         return null;
     }
 
+    /**
+     * Gets a Collectible by name.
+     * @param name The name to search for
+     * @return The first collectible with the given name, or null is one is not found
+     *
+     * @author iWasHere
+     */
     public Collectible getCollectibleByName(String name){
         name = name.toLowerCase();
         for (Collectible c : collectibles){

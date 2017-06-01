@@ -4,10 +4,21 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Command utility class.
+ *
  * Created by iWasHere on 5/12/2017.
  */
 public class CommandHelper {
 
+    /**
+     * Checks if the source string is a command, using an array of command aliases.
+     *
+     * @param searches Aliases for the command
+     * @param source The source string
+     * @return Whether or not there is a match
+     *
+     * @author iWasHere
+     */
     public static boolean isCommand(String[] searches, String source){
         for (String s : searches){
             if (isCommand(s, source)){
@@ -18,6 +29,15 @@ public class CommandHelper {
         return false;
     }
 
+    /**
+     * Checks if the source string is a command, matching the search term.
+     *
+     * @param search The command string to search for
+     * @param source The source string
+     * @return Whether or not there is a match
+     *
+     * @author iWasHere
+     */
     public static boolean isCommand(String search, String source){
         search = Referendum.COMMANDPREFIX + search;
 
@@ -25,6 +45,21 @@ public class CommandHelper {
         return source.substring(0, search.length()).equals(search);
     }
 
+    /**
+     * Gets the arguments for a command.
+     * For example, a command such as
+     * ';i info testitem'
+     * has two arguments: info, testitem.
+     *
+     * This will also parse quotation marks.
+     * ';emotify :fire: "Hello world!"'
+     * Is still two arguments: :fire:, Hello world!
+     *
+     * @param command The source command string.
+     * @return Array of strings for arguments
+     *
+     * @author iWasHere
+     */
     public static String[] getArgs(String command){
 
         List<String> args = new ArrayList<>();

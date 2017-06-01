@@ -1,6 +1,7 @@
 package com.iwh.clod.listener;
 
 import com.iwh.clod.*;
+import net.dv8tion.jda.core.MessageBuilder;
 import net.dv8tion.jda.core.entities.Message;
 import net.dv8tion.jda.core.entities.TextChannel;
 import net.dv8tion.jda.core.events.DisconnectEvent;
@@ -10,7 +11,12 @@ import net.dv8tion.jda.core.events.ReconnectedEvent;
 import net.dv8tion.jda.core.events.message.guild.GuildMessageReceivedEvent;
 import net.dv8tion.jda.core.hooks.ListenerAdapter;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
 import java.util.EventListener;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Created by iWasHere on 5/12/2017.
@@ -19,7 +25,6 @@ public class GeneralListener extends ListenerAdapter{
 
     public void onReady(ReadyEvent event){
         BotLogger.info("Startup successful.");
-        event.
     }
 
     public void onDisconnect(DisconnectEvent event){
@@ -104,7 +109,54 @@ public class GeneralListener extends ListenerAdapter{
             }
 
             channel.sendMessage(built).queue();
+        }
 
+        //Long TTS
+        if (CommandHelper.isCommand("ltts", content)){
+            String[] args = CommandHelper.getArgs(content);
+
+            if (args.length != 1){
+                channel.sendMessage("Incorrect usage!").queue();
+                return;
+            }
+
+            List<String> strings = Util.splitUpString(args[0], 130, 140);
+
+            for (int i = 0; i < strings.size(); i++){
+                MessageBuilder builder = new MessageBuilder();
+                builder.append(strings.get(i));
+                builder.setTTS(true);
+
+                channel.sendMessage(builder.build()).queueAfter(i * 3, TimeUnit.SECONDS);
+            }
+        }
+
+        //Copypasta
+        if (CommandHelper.isCommand("cp", content)){
+            String[] args = CommandHelper.getArgs(content);
+
+            if (args.length != 1){
+                channel.sendMessage("Incorrect usage!").queue();
+                return;
+            }
+
+            try {
+                String str = Util.getStringFromFile(new File("src\\main\\resources\\copypasta\\" + args[0] + ".txt"));
+
+                List<String> strings = Util.splitUpString(str, 130, 140);
+
+                for (int i = 0; i < strings.size(); i++){
+                    MessageBuilder builder = new MessageBuilder();
+                    builder.append(strings.get(i));
+                    builder.setTTS(true);
+
+                    channel.sendMessage(builder.build()).queueAfter(i * 3, TimeUnit.SECONDS);
+                }
+
+            }
+            catch (FileNotFoundException e){
+                channel.sendMessage(args[0] + " doesn't exist.").queue();
+            }
         }
     }
 

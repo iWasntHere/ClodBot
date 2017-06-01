@@ -41,14 +41,38 @@ public class UserInventory {
         return points;
     }
 
+    /**
+     * Modifies this userinventory's points by the given amount.
+     *
+     * @param toMod The amount of points to add
+     *
+     * @author iWasHere
+     */
     public void modifyPoints(int toMod){
         points += toMod;
     }
 
+    /**
+     * Gets the list of owned collectibles.
+     *
+     * @return List of collectibles owned
+     *
+     * @author iWasHere
+     */
     public List<Collectible> getCollectibles(){
         return collectibles;
     }
 
+    /**
+     * Tries to give a collectible to the user.
+     * Returns whether or not this was successful. If the user has the collectible, or the collectible doesn't exist,
+     * returns false.
+     *
+     * @param id The id of the collectible to give
+     * @return Success
+     *
+     * @author iWasHere
+     */
     public boolean giveCollectible(String id){
         if (hasCollectible(id)){
             return false;
@@ -63,6 +87,14 @@ public class UserInventory {
         return true;
     }
 
+    /**
+     * Returns whether or not this UserInventory has a given collectible.
+     *
+     * @param id The collectible to check for by id
+     * @return If the user has the collectible
+     *
+     * @author iWasHere
+     */
     public boolean hasCollectible(String id){
         for (Collectible c : collectibles){
             if (c.getId().equals(id)){

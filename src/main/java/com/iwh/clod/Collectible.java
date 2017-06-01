@@ -1,6 +1,8 @@
 package com.iwh.clod;
 
 /**
+ * A class representing a collectible item.
+ *
  * Created by iWasHere on 5/11/2017.
  */
 public class Collectible {
@@ -29,10 +31,24 @@ public class Collectible {
         return getId() + " / " + getName() + " / " + getDescription() + " / Emoji: " + getEmoji();
     }
 
+    /**
+     * Gets the name of the collectible along with the emoji.
+     *
+     * @return The string representing formal name
+     *
+     * @author iWasHere
+     */
     public String getFormalName(){
         return getEmoji() + " " + getName();
     }
 
+    /**
+     * Gets the info for the collectible as a string.
+     *
+     * @return The string representing info
+     *
+     * @author iWasHere
+     */
     public String getFormalInfo(){
         return getEmoji() + " " + getName() + "\n*" + getDescription() + "*";
     }

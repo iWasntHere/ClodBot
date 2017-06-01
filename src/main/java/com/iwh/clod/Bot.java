@@ -13,12 +13,20 @@ import java.sql.Ref;
 import java.util.Properties;
 
 /**
+ * Runs the bot.
+ *
  * Created by iWasHere on 5/11/2017.
  */
 public class Bot {
 
     public static JDA bot;
 
+    /**
+     * Main method.
+     * @param args Arguments from command line.
+     *
+     * @author iWasHere
+     */
     public static void main(String args[]) {
 
         Properties properties = new Properties();
